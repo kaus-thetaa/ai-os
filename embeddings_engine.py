@@ -4,14 +4,6 @@ import numpy as np
 import config
 
 class EmbeddingError(Exception):
-    """
-    Raised when text embedding fails — most commonly because the
-    model failed to load (e.g. corrupted download, first-time
-    download failed due to no internet) or because empty/invalid
-    text was passed in. We use our own exception type so calling
-    code can catch embedding-specific failures separately from
-    other kinds of errors.
-    """
     pass
 
 

@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+build/
+dist/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# ChromaDB local vector data (this will get large and is machine-specific)
+chroma_db/
+*.sqlite3
+
+# Ollama model cache (models live outside repo anyway, but just in case)
+*.gguf
+*.bin
+
+# App-generated data (logs, cache, user config)
+logs/
+*.log
+cache/
+.aios_config.json
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Environment secrets (if you ever add any)
+.env
