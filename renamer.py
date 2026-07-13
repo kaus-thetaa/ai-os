@@ -101,10 +101,20 @@ def suggest_filename(file_path: str) -> str:
     
     cleaned_suggestion = raw_suggestion.strip().strip('"').strip("'").strip(".")
 
+# only take the first line, in case the model rambled or listed options
+    cleaned_suggestion = cleaned_suggestion.splitlines()[0].strip()
+
+# only take the first word-group before any accidental extra filename got appended
+    cleaned_suggestion = cleaned_suggestion.split(".txt")[0].split(".html")[0].split(".pdf")[0].split(".docx")[0].split(".md")[0].split(".csv")[0]
+
     sanitized_name = sanitize_filename(cleaned_suggestion)
 
-    return f"{sanitized_name}{file.suffix.lower()}"
+# strip the original extension if the model echoed it back despite instructions
+    original_extension = file.suffix.lower()
+    if sanitized_name.lower().endswith(original_extension):
+        sanitized_name = sanitized_name[: -len(original_extension)]
 
+    return f"{sanitized_name}{original_extension}"
 
 def rename_file(file_path: str, new_filename: str) -> str:
 
