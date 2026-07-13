@@ -1,14 +1,13 @@
+import config
+import styles
+import llm_engine
+
 import sys
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout,
     QPushButton, QLabel, QFrame, QStackedWidget
 )
 from PyQt6.QtCore import Qt
-
-import config
-import styles
-import llm_engine
-
 
 class MainWindow(QMainWindow):
     def __init__(self):
